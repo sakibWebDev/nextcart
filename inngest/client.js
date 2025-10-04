@@ -1,6 +1,9 @@
-import  {Inngest}  from 'inngest'
 
-export const inngest = new Inngest({
+
+// inngest/client.js
+import { inngest } from "inngest";
+
+export const inngestClient = inngest({
   id: "nextCart-ecomerce",
   name: "NextCart Ecommerce",
 });

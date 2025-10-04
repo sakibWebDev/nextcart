@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 import { inngestClient as inngest } from "@/inngest/client";
-
+// previewFeatures = ["driverAdapters"]
 
 export const syncUserCreation = inngest.createFunction(
   { id: "sync-user-create" },

@@ -1,4 +1,6 @@
-import { Inngest } from "inngest";
+import  Inngest  from 'inngest'
 
-// Create a client to send and receive events
-export const inngest = new Inngest({ id: "nextCart-ecomerce" });
+export const inngest = new Inngest({
+  id: "nextCart-ecomerce",
+  name: "NextCart Ecommerce",
+});

@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { inngest } from "./client";
+import { inngest } from "@/inngest/client";
 
 export const syncUserCreation = inngest.createFunction(
   { id: "sync-user-create" },

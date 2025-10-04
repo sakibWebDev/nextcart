@@ -1,8 +1,7 @@
 import prisma from "@/lib/prisma";
-import { inngestClient as inngest } from "@/inngest/client";
-// previewFeatures = ["driverAdapters"]
+import { inngestClient } from "../client";
 
-export const syncUserCreation = inngest.createFunction(
+export const syncUserCreation = inngestClient.createFunction(
   { id: "sync-user-create" },
   { event: "clerk/user.created" },
   async ({ event }) => {
@@ -18,7 +17,7 @@ export const syncUserCreation = inngest.createFunction(
   }
 );
 
-export const syncUserUpdation = inngest.createFunction(
+export const syncUserUpdation = inngestClient.createFunction(
   { id: "sync-user-update" },
   { event: "clerk/user.updated" },
   async ({ event }) => {
@@ -34,11 +33,13 @@ export const syncUserUpdation = inngest.createFunction(
   }
 );
 
-export const syncUserDeletion = inngest.createFunction(
+export const syncUserDeletion = inngestClient.createFunction(
   { id: "sync-user-delete" },
   { event: "clerk/user.deleted" },
   async ({ event }) => {
     const { data } = event;
-    await prisma.user.delete({ where: { id: data.id } });
+    await prisma.user.delete({
+      where: { id: data.id },
+    });
   }
 );
